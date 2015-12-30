@@ -13,7 +13,7 @@ class UserController extends APIController {
 	 */
 	public function index()
 	{
-		return view("API::index");
+		return 'fds';
 	}
 
 	/**
