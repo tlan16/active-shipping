@@ -1,30 +1,7 @@
 <?php
+require_once __DIR__ . '/BasicCreateTableMigrationAbstract.php';
 
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreateMoneypoolTable extends Migration
+class CreateMoneypoolTable extends BasicCreateTableMigrationAbstract
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('moneypool', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('moneypool');
-    }
+	protected $_tableName = 'moneyppool';
 }

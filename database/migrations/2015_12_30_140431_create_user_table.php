@@ -1,30 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class CreateUserTable extends Migration
+require_once __DIR__ . '/BasicCreateTableMigrationAbstract.php';
+class CreateUserTable extends BasicCreateTableMigrationAbstract
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('user', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('user');
-    }
+    protected $_tableName = 'user';
 }
