@@ -1,13 +1,11 @@
-<?php 
-
-namespace App\Modules\API\Controllers;
+<?php namespace App\Modules\API\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class APIController extends Controller {
-
+class UserController extends APIController {
+	
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -15,6 +13,7 @@ class APIController extends Controller {
 	 */
 	public function index()
 	{
+		return view("API::index");
 	}
 
 	/**
@@ -80,5 +79,4 @@ class APIController extends Controller {
 	{
 		//
 	}
-
 }

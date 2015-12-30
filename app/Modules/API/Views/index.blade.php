@@ -1,2 +1,2 @@
 <?php
-echo trans('api::example.welcome');
+echo 'here11';
