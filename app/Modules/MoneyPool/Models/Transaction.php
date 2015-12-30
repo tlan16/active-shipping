@@ -7,5 +7,10 @@ use App\Modules\Abstracts\Models\BaseModel;
 
 class Transaction extends BaseModel
 {
-    //
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'transaction';
 }
