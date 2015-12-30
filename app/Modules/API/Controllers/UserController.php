@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Modules\System\Models\User;
 
 class UserController extends APIController {
 	
@@ -13,7 +14,7 @@ class UserController extends APIController {
 	 */
 	public function index()
 	{
-		return 'fds';
+		return User::find(1)->toJson();
 	}
 
 	/**
