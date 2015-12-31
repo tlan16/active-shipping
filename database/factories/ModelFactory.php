@@ -27,7 +27,7 @@ $factory->define ( App\Modules\System\Models\Role::class, function (Faker\Genera
 			'active' => 1,
 			'created' => $faker->dateTime,
 			'updated' => $faker->dateTime,
-			'name' => $faker->name 
+			'name' => 'Role_' . $faker->randomDigitNotNull 
 	];
 } );
 $factory->define ( App\Modules\System\Models\Credential::class, function (Faker\Generator $faker) {
