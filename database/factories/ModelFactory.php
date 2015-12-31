@@ -60,4 +60,15 @@ $factory->define ( App\Modules\MoneyPool\Models\MoneyPool::class, function (Fake
 			'amount' => $faker->numberBetween(-50, 50),
 	];
 } );
+$factory->define ( App\Modules\MoneyPool\Models\Transaction::class, function (Faker\Generator $faker) {
+	return [ 
+			'active' => 1,
+			'created' => $faker->dateTime,
+			'updated' => $faker->dateTime,
+			'poolId' => $faker->numberBetween(1, 50),
+			'comments' => $faker->text(255),
+			'transGroupId' => $faker->md5,
+			'amount' => $faker->numberBetween(-50, 50),
+	];
+} );
 
