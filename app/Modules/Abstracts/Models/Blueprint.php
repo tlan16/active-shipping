@@ -16,5 +16,11 @@ class Blueprint extends \Illuminate\Database\Schema\Blueprint {
 		$this->integer('createdById');
 		$this->timestamp('updated');
 		$this->integer('updatedById');
+		
+		$this->index(['active'], 'active');
+		$this->index(['created'], 'created');
+		$this->index(['createdById'], 'createdById');
+		$this->index(['updated'], 'updated');
+		$this->index(['updatedById'], 'updatedById');
 	}
 }
