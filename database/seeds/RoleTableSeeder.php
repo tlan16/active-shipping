@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/BasicTableSeederAbstract.php';
 class RoleTableSeeder extends BasicTableSeederAbstract {
-	protected $_entityName = 'App\Modules\System\Models\Role';
+	protected $_entityName = App\Modules\System\Models\Role::class;
 	/**
 	 * Run the database seeds.
 	 *

@@ -42,13 +42,22 @@ $factory->define ( App\Modules\System\Models\Credential::class, function (Faker\
 	];
 } );
 $factory->define ( App\Modules\MoneyPool\Models\Group::class, function (Faker\Generator $faker) {
-	$types = App\Modules\System\Models\Credential::getCredentialTypes ();
 	return [ 
 			'active' => 1,
 			'created' => $faker->dateTime,
 			'updated' => $faker->dateTime,
-			'name' => $faker->name,
+			'name' => $faker->text(10),
 			'description' => $faker->text(255),
+	];
+} );
+$factory->define ( App\Modules\MoneyPool\Models\MoneyPool::class, function (Faker\Generator $faker) {
+	return [ 
+			'active' => 1,
+			'created' => $faker->dateTime,
+			'updated' => $faker->dateTime,
+			'entityName' => $faker->text(10),
+			'entityId' => $faker->numberBetween(1, 50),
+			'amount' => $faker->numberBetween(-50, 50),
 	];
 } );
 
