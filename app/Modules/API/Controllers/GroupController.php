@@ -5,6 +5,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Modules\System\Models\User;
 
-class UserController extends APIController {
-	protected $_entityName = \App\Modules\System\Models\User::class;
+class GroupController extends APIController {
+	protected $_entityName = \App\Modules\MoneyPool\Models\Group::class;
 }
