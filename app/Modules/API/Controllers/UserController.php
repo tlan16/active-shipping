@@ -14,7 +14,7 @@ class UserController extends APIController {
 	 */
 	public function index()
 	{
-		return User::find(1)->toJson();
+		return User::find(1)->createdBy->toJson();
 	}
 
 	/**

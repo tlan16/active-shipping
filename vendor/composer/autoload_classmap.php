@@ -6,19 +6,23 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'BasicCreateTableMigrationAbstract' => $baseDir . '/database/migrations/BasicCreateTableMigrationAbstract.php',
+    'BasicTableSeederAbstract' => $baseDir . '/database/seeds/BasicTableSeederAbstract.php',
     'CreateCredentialTable' => $baseDir . '/database/migrations/2015_12_30_140440_create_credential_table.php',
-    'CreateGroupPersonTable' => $baseDir . '/database/migrations/2015_12_30_140518_create_group_person_table.php',
     'CreateGroupTable' => $baseDir . '/database/migrations/2015_12_30_140528_create_group_table.php',
+    'CreateGroupUserTable' => $baseDir . '/database/migrations/2015_12_30_140518_create_group_user_table.php',
     'CreateMoneypoolTable' => $baseDir . '/database/migrations/2015_12_30_140558_create_moneypool_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateRoleTable' => $baseDir . '/database/migrations/2015_12_30_140452_create_role_table.php',
     'CreateTransactionTable' => $baseDir . '/database/migrations/2015_12_30_140626_create_transaction_table.php',
     'CreateUserTable' => $baseDir . '/database/migrations/2015_12_30_140431_create_user_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
+    'CredentialTableSeeder' => $baseDir . '/database/seeds/CredentialTableSeeder.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',
+    'GroupTableSeeder' => $baseDir . '/database/seeds/GroupTableSeeder.php',
     'Hamcrest\\Arrays\\IsArray' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
     'Hamcrest\\Arrays\\IsArrayContaining' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
     'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
@@ -483,6 +487,7 @@ return array(
     'PHP_Token_XOR_EQUAL' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD_FROM' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
+    'RoleTableSeeder' => $baseDir . '/database/seeds/RoleTableSeeder.php',
     'SebastianBergmann\\Comparator\\ArrayComparator' => $vendorDir . '/sebastian/comparator/src/ArrayComparator.php',
     'SebastianBergmann\\Comparator\\Comparator' => $vendorDir . '/sebastian/comparator/src/Comparator.php',
     'SebastianBergmann\\Comparator\\ComparisonFailure' => $vendorDir . '/sebastian/comparator/src/ComparisonFailure.php',
@@ -521,4 +526,5 @@ return array(
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'UserTableSeeder' => $baseDir . '/database/seeds/UserTableSeeder.php',
 );

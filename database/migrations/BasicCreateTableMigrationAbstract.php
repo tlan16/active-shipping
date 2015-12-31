@@ -1,8 +1,11 @@
 <?php
 use Illuminate\Database\Migrations\Migration;
-class BasicCreateTableMigrationAbstract extends Migration {
+abstract class BasicCreateTableMigrationAbstract extends Migration {
 	
 	protected $_tableName = '';
+	protected function _extraColumns(App\Modules\Abstracts\Models\Blueprint $table) {
+		
+	}
 	/**
 	 * Run the migrations.
 	 *
@@ -15,8 +18,9 @@ class BasicCreateTableMigrationAbstract extends Migration {
 			return new \App\Modules\Abstracts\Models\Blueprint ( $table, $callback );
 		} );
 		
-		$schema->create ( $this->_tableName, function ($table) {
+		$schema->create ( $this->_tableName, function (App\Modules\Abstracts\Models\Blueprint $table) {
 			$table->basicEntityColumns ();
+			$this->_extraColumns($table);
 		} );
 	}
 	
