@@ -54,7 +54,7 @@
 				</li>
 			</ul>
 			<form class="navbar-form navbar-right">
-				<input type="text" class="form-control" placeholder="Search...">
+				<input type="text" class="form-control" placeholder="Search..." ng-model="nameFilter">
 			</form>
 		</div>
 	</div>

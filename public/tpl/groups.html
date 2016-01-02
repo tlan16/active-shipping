@@ -1,6 +1,6 @@
-<h3 class="page-header"><small><i class="fa fa-group"></i></small> Groups </h3>
+<h3 class="page-header"><small><i class="fa fa-group"></i></small> Groups <small>: {{groupList.total}}</small></h3>
 <div class="row">
-	<div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="group in groupList.data">
+	<div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="group in groupList.data | filter: nameFilter">
 		<a href="/" >
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -10,6 +10,18 @@
 					</div>
 					<div class="row" title="{{group.description}}">
 						<div class="col-xs-12 group-box-description"><small>{{group.description}}</small></div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+	<div class="col-sm-6 col-md-4 col-lg-3">
+		<a href="/">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="panel-heading text-center">
+						<i class="fa fa-plus"></i>
+						<h4>New Group</h4>
 					</div>
 				</div>
 			</div>

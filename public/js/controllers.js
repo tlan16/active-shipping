@@ -13,6 +13,7 @@ angular.module('mpApp.controllers', []).
     		} else {
     			$scope.groupList.data = $scope.groupList.data.concat(response.data);
     		}
+    		$scope.groupList.pageNo = response.current_page;
     	}
     });
   });
