@@ -29,21 +29,21 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="#">
-						<i class="fa fa-bars"></i>
-						<span class="hidden-sm">Groups</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<i class="fa fa-cog"></i>
-						<span class="hidden-sm">Profile</span>
+					<a href="#" title="Groups">
+						<i class="fa fa-group"></i>
+						<span class="hidden-sm hidden-md hidden-lg">Groups</span>
 					</a>
 				</li>
 				<li>
 					<a href="#" title="notification">
 						<i class="fa fa-bell-o"></i>
 						<span class="hidden-sm hidden-md hidden-lg">Notificaton</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-cog"></i>
+						<span class="hidden-sm">my name</span>
 					</a>
 				</li>
 				<li>

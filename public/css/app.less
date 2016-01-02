@@ -1,0 +1,23 @@
+@top-menu-height: 32px;
+@group-description-font-size: 12px;
+@group-description-line-height: 1.4;
+@group-description-lines-to-show: 2;
+
+.page-wrapper {
+	margin-top: @top-menu-height;
+}
+
+.group-box-description {
+	with: 100%;
+	overflow: hidden;
+	display: block; /* Fallback for non-webkit */
+  	display: -webkit-box;
+  	height: @group-description-font-size*@group-description-line-height*@group-description-lines-to-show; /* Fallback for non-webkit */
+  	margin: 0 auto;
+  	font-size: @group-description-font-size;
+  	line-height: @group-description-line-height;
+  	-webkit-line-clamp: @group-description-lines-to-show;
+  	-webkit-box-orient: vertical;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+}

@@ -1,0 +1,18 @@
+<h3 class="page-header"><small><i class="fa fa-group"></i></small> Groups </h3>
+<div class="row">
+	<div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="group in groupList.data">
+		<a href="/" >
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-6"><h4>{{group.name}}</h4></div>
+						<div class="col-xs-6 text-right"><div class="huge">$ fs</div></div>
+					</div>
+					<div class="row" title="{{group.description}}">
+						<div class="col-xs-12 group-box-description"><small>{{group.description}}</small></div>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>

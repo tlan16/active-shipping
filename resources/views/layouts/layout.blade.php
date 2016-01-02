@@ -8,23 +8,30 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet/less" type="text/css" href="/css/app.less" />
+	<script src="/js/lib/less.min.js"></script>
 	<title>App Name - @yield('appName')</title>
 </head>
-<body>
+<body ng-app="mpApp">
 	@section('header')
 		@include('layouts.head')
 	@show
 	@section('body')
-		<div class="container">
-			<div ng-view></div>
+		<div class="page-wrapper">
+			<div class="container">
+				<ng-view></ng-view>
+			</div>
 		</div>
 	@show
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+	<script src="/js/lib/jquery.min.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
+	<script src="/js/lib/angular.min.js"></script>
+	<script src="/js/lib/angular-route.js"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/services.js"></script>
+	<script src="/js/controllers.js"></script>
     @section('end-js')
     @show
 </body>
