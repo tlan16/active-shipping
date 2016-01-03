@@ -21,10 +21,12 @@ angular.module('mpApp.controllers', [])
 	  })
 	.controller('groupController', function($scope, $routeParams, mpAPIservice) {
 		$scope.id = $routeParams.id;
-		$scope.group = null;
+		$scope.group = {'details': null, 'members': []};
 		
 		mpAPIservice.getGroup($scope.id).success(function (response) {
-			$scope.group = response;
-			$scope.group.members = [{'firstname': 'test', 'lastname': 'he'}, {'firstname': 'test', 'lastname': 'he'}];
+			$scope.group.details = response;
+		});
+		mpAPIservice.getGroupMembers($scope.id).success(function (response) {
+			$scope.group.members = response;
 		});
 	});
