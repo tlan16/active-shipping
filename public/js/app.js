@@ -14,4 +14,13 @@ angular.module('mpApp', [
 	.when("/group/:id", {templateUrl: "/tpl/group.html", controller: "groupController"})
 	.otherwise({redirectTo: '/group'});
 }])
+.directive('editableGroupName', function ($compile){
+	return {
+		restrict: 'AE',
+		scope: {
+			myDirModel: '='
+		},
+		template: '<a href="#"><strong class="editable-group-name">{{myDirModel.details.name}}</strong></span>'
+	};
+})
 ;

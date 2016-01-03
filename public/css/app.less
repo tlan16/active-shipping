@@ -1,7 +1,8 @@
-@top-menu-height: 32px;
+@top-menu-height: 62px;
 @group-description-font-size: 12px;
 @group-description-line-height: 1.4;
 @group-description-lines-to-show: 2;
+@group-name-font-size: 20px;
 
 .page-wrapper {
 	margin-top: @top-menu-height;
@@ -20,4 +21,9 @@
   	-webkit-box-orient: vertical;
   	overflow: hidden;
   	text-overflow: ellipsis;
+}
+
+.editable-group-name {
+	font-size: @group-name-font-size;
+	padding: 8px;
 }
