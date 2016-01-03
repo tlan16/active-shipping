@@ -11,6 +11,13 @@ angular.module('mpApp.services', []).
         params: parameters
       });
     };
+    mpAPI.getGroup = function(id, parameters) {
+	  return $http({
+        method: 'GET', 
+        url: '/api/group/' + id,
+        params: parameters
+      });
+	};
 
     return mpAPI;
   });

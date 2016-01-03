@@ -1,4 +1,4 @@
-@section('appName', 'My App Name')
+@section('appName', env('APP_DEFAULT_NAME', ''))
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,15 +20,14 @@
 	@show
 	@section('body')
 		<div class="page-wrapper">
-			<div class="container">
-				<ng-view></ng-view>
-			</div>
+			<ng-view></ng-view>
 		</div>
 	@show
 	<script src="/js/lib/jquery.min.js"></script>
 	<script src="js/lib/bootstrap.min.js"></script>
 	<script src="/js/lib/angular.min.js"></script>
 	<script src="/js/lib/angular-route.js"></script>
+	<script src="/js/lib/angular-ui-bootstrap.min.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/services.js"></script>
 	<script src="/js/controllers.js"></script>
