@@ -45,7 +45,7 @@ abstract class APIController extends Controller {
 	 * @param int $id        	
 	 * @return Response
 	 */
-	public function show($id) {
+	public function show($id, $someId = null) {
 		$className = $this->_entityName;
 		$entity = $className::find ( $id );
 		return $entity->toJson ();

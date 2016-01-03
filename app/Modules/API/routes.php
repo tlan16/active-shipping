@@ -4,4 +4,5 @@ Route::group(['as' => 'API::', 'prefix' => 'api', 'namespace' => 'App\Modules\AP
     Route::resource('group', 'GroupController');
     Route::resource('transaction', 'TransactionController');
     Route::resource('role', 'RoleController');
+    Route::resource('group.user', 'GroupUserController');
 });

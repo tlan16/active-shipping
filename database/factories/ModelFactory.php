@@ -72,3 +72,13 @@ $factory->define ( App\Modules\MoneyPool\Models\Transaction::class, function (Fa
 	];
 } );
 
+$factory->define ( App\Modules\MoneyPool\Models\Group_User::class, function (Faker\Generator $faker) {
+	return [ 
+			'active' => 1,
+			'created' => $faker->dateTime,
+			'updated' => $faker->dateTime,
+			'groupId' => $faker->numberBetween(1, 50),
+			'userId' => $faker->numberBetween(1, 50),
+	];
+} );
+

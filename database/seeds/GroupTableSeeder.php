@@ -23,5 +23,7 @@ class GroupTableSeeder extends BasicTableSeederAbstract {
 			$pool->save();
 			
 		} );
+		
+		factory ( App\Modules\MoneyPool\Models\Group_User::class, 50 )->create();
 	}
 }
