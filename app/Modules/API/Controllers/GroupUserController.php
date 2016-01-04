@@ -14,7 +14,7 @@ class GroupUserController extends APIController {
 	public function show($groupId, $someId = null)
 	{
 		$class = trim($this->_entityName);
-		$result = $class::where('groupId', $groupId)->get(['userId']);
+		$result = $class::where('groupId', $groupId)->distinct()->get(['userId']);
 		$userIds = [];
 		foreach($result as $row)
 			$userIds[] = $row->userId;

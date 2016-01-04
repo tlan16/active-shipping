@@ -13,4 +13,8 @@ class Transaction extends BaseModel
      * @var string
      */
     protected $table = 'transaction';
+    public function pool()
+    {
+    	return $this->belongsTo(\App\Modules\MoneyPool\Models\MoneyPool::class, 'poolId');
+    }
 }

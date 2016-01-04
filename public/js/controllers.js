@@ -29,4 +29,7 @@ angular.module('mpApp.controllers', [])
 		mpAPIservice.getGroupMembers($scope.id).success(function (response) {
 			$scope.group.members = response;
 		});
+		mpAPIservice.getGroupTransactions($scope.id).success(function (response) {
+			$scope.group.transactions = response;
+		});
 	});

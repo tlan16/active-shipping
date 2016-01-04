@@ -25,6 +25,13 @@ angular.module('mpApp.services', []).
 			params: parameters
 		});
 	};
+	mpAPI.getGroupTransactions = function(id, parameters) {
+		return $http({
+			method: 'GET', 
+			url: '/api/group/' + id + '/transaction/all',
+			params: parameters
+		});
+	};
 
     return mpAPI;
   });
