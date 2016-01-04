@@ -32,4 +32,13 @@ angular.module('mpApp', [
 		template: '<button class="btn btn-success btn-xs" title="New Member"><i class="fa fa-plus"></i></button>'
 	};
 })
+.directive('newTransToGroup', function ($compile){
+	return {
+		restrict: 'AE',
+		scope: {
+			myDirModel: '='
+		},
+		template: '<button class="btn btn-info btn-xs" title="New Transaction" href="javascript: void(0);" uib-popover-template="' + "'" + '/tpl/newTransToGroupForm.html' + "'" + '"  popover-placement="bottom" popover-animation="true"><i class="fa fa-plus"></i> <span class="hidden-xs">New Transaction to {{myDirModel.details.name}}</button>'
+	};
+})
 ;
