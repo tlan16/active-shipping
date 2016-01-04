@@ -33,11 +33,14 @@ angular.module('mpApp.controllers', [])
 			mpAPIservice.getGroupTransactions($scope.id, {'page': (pageNo || 1)}).success(function (response) {
 				if (response.data && response.data.length > 0) {
 					if(!$scope.group.transactions) {
-						$scope.group.transactions = {'totalPages': response.last_page, 'total': response.total, 'pageSize': response.per_page, 'data': response.data};
-	        		} else {
-	        			$scope.group.transactions.data = $scope.groupList.data.concat(response.data);
-	        		}
-	        		$scope.group.transactions.pageNo = response.current_page;
+						$scope.group.transactions = {'totalPages': response.last_page, 'total': response.total, 'pageSize': response.per_page, 'data': {}};
+					}
+					$scope.group.transactions.pageNo = response.current_page;
+					angular.forEach(response.data, function(value, key) {
+						if (!$scope.group.transactions.data[value.transGroupId])
+							$scope.group.transactions.data[value.transGroupId] = {};
+						$scope.group.transactions.data[value.transGroupId][value.userId] = value.amount;
+					});
 	        	}
 	        });
 	    };

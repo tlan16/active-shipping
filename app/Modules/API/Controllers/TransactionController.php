@@ -23,12 +23,6 @@ class TransactionController extends APIController {
 		foreach($result as $row)
 			$transGroupIds[] = $row->transGroupId;
 		$result = $class::where('transGroupId', $transGroupIds)->distinct()->get();
-		$return = array();
-		foreach($result as $transaction) {
-			if(!isset($result[$transaction->transGroupId]))
-				$result[$transaction->transGroupId] = [];
-				$result[$transaction->transGroupId][] = $transaction->toArray();
-		}
 		return $result->toJson();
 	}
 }
