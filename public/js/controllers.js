@@ -2,14 +2,14 @@
  * all angular controllers are here
  */
 angular.module('mpApp.controllers', [])
-	  .controller('groupsController', function($scope, mpAPIservice) {
+	.controller('groupsController', function($scope, mpAPIservice) {
 		$scope.groupList = {};
 		$scope.getData = function (pageNo) {
-		mpAPIservice.getGroups({'page': (pageNo || 1)}).success(function (response) {
-	    //Dig into the responde to get the relevant data
-		if (response.data && response.data.length > 0) {
-			if(!$scope.groupList.data) {
-				$scope.groupList = {'totalPages': response.last_page, 'total': response.total, 'pageSize': response.per_page, 'data': response.data};
+			mpAPIservice.getGroups({'page': (pageNo || 1)}).success(function (response) {
+			    //Dig into the responde to get the relevant data
+				if (response.data && response.data.length > 0) {
+					if(!$scope.groupList.data) {
+						$scope.groupList = {'totalPages': response.last_page, 'total': response.total, 'pageSize': response.per_page, 'data': response.data};
 	        		} else {
 	        			$scope.groupList.data = $scope.groupList.data.concat(response.data);
 	        		}
@@ -18,7 +18,7 @@ angular.module('mpApp.controllers', [])
 	        });
 	    };
 	    $scope.getData(1);
-	  })
+	})
 	.controller('groupController', function($scope, $routeParams, mpAPIservice) {
 		$scope.id = $routeParams.id;
 		$scope.group = {'details': null, 'members': []};
@@ -29,7 +29,17 @@ angular.module('mpApp.controllers', [])
 		mpAPIservice.getGroupMembers($scope.id).success(function (response) {
 			$scope.group.members = response;
 		});
-		mpAPIservice.getGroupTransactions($scope.id).success(function (response) {
-			$scope.group.transactions = response;
-		});
+		$scope.getGroupTransactions = function (pageNo) {
+			mpAPIservice.getGroupTransactions($scope.id, {'page': (pageNo || 1)}).success(function (response) {
+				if (response.data && response.data.length > 0) {
+					if(!$scope.group.transactions) {
+						$scope.group.transactions = {'totalPages': response.last_page, 'total': response.total, 'pageSize': response.per_page, 'data': response.data};
+	        		} else {
+	        			$scope.group.transactions.data = $scope.groupList.data.concat(response.data);
+	        		}
+	        		$scope.group.transactions.pageNo = response.current_page;
+	        	}
+	        });
+	    };
+	    $scope.getGroupTransactions(1);
 	});

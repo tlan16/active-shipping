@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 abstract class APIController extends Controller {
-	protected $_pageSize = 30;
+	const DEFAULT_PAGE_SIZE = 30;
+	protected $_pageSize = self::DEFAULT_PAGE_SIZE;
 	protected $_entityName = '';
 	/**
 	 * Display a listing of the resource.
