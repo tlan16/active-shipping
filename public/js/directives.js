@@ -43,4 +43,27 @@ var app = angular.module('mpApp.directives', [])
 		},
 		templateUrl: '/tpl/userAvatar.html'
 	};
+})
+.directive('resetPassword', function ($compile) {
+	return {
+		restrict: 'AE',
+		scope: {
+			needToComfirm: '=',
+			ngUser: '='
+		},
+		templateUrl: '/tpl/resetUserPassword.html'
+	};
+})
+.directive('passwordMatch', function ($compile) {
+	return {
+		require: 'ngModel',
+		link: function (scope, confirmElement, attrs, controller) {
+			var firstPassword = '#' + attrs.passwordMatch;
+			confirmElement.add(firstPassword).on('keyup', function () {
+				scope.$apply(function () {
+					controller.$setValidity('password-matched', confirmElement.val() === $(firstPassword).val());
+				});
+			});
+		}
+	};
 });
