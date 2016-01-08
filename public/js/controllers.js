@@ -46,7 +46,7 @@ angular.module('mpApp.controllers', [])
 	    };
 	    $scope.getGroupTransactions(1);
 	})
-	.controller('userController', function($scope, $routeParams, mpAPIservice) {
+	.controller('userController', function($rootScope, $scope, $routeParams, mpAPIservice) {
 		$scope.requestedUser = {'id': $routeParams.id};
 		
 		$scope.getUser = function (userId) {
@@ -54,5 +54,5 @@ angular.module('mpApp.controllers', [])
 				$scope.requestedUser = response;
 			});
 		};
-		$scope.getUser($scope.user.id);
+		$scope.getUser($rootScope.user.id);
 	});

@@ -16,4 +16,7 @@ var app = angular.module('mpApp', [
 	.when("/me", {templateUrl: "/tpl/me.html", controller: "userController"})
 	.otherwise({redirectTo: '/group'});
 }])
+.run(['$rootScope', function($rootScope){
+	$rootScope.user = {"id":1,"active":1,"created":"2006-03-01 23:41:27","createdById":1,"updated":"1996-02-09 11:42:12","updatedById":1,"firstname":"Gilbert","lastname":"Luettgen","email":"fLegros@hotmail.com"}
+}])
 ;
