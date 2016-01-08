@@ -26,8 +26,7 @@
 				</li>
 				<li>
 					<a href="/#/me">
-						<i class="fa fa-cog"></i>
-						<span class="hidden-sm">my name</span>
+					  <user-avatar ng-model='user'></user-avatar><span class="hidden-sm"> @{{user.firstname}}</span>
 					</a>
 				</li>
 				<li>

@@ -39,8 +39,8 @@ var app = angular.module('mpApp.directives', [])
 	return {
 		restrict: 'AE',
 		scope: {
-			myDirModel: '='
+			ngModel: '='
 		},
-		template: '<img src="/images/default-profile.png" class="img-circle user-avatar" alt="Circular Image" />'
+		templateUrl: '/tpl/userAvatar.html'
 	};
 });
