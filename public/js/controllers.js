@@ -45,4 +45,14 @@ angular.module('mpApp.controllers', [])
 	        });
 	    };
 	    $scope.getGroupTransactions(1);
+	})
+	.controller('userController', function($scope, $routeParams, mpAPIservice) {
+		$scope.user = {'id': 1};
+		$scope.requestedUser = null;
+		$scope.getUser = function (userId) {
+			mpAPIservice.getUser(userId).success(function (response) {
+				$scope.requestedUser = response;
+			});
+		};
+		$scope.getUser($scope.user.id);
 	});

@@ -32,6 +32,13 @@ angular.module('mpApp.services', []).
 			params: parameters
 		});
 	};
+	mpAPI.getUser = function(id, parameters) {
+		return $http({
+			method: 'GET', 
+			url: '/api/user/' + id,
+			params: parameters
+		});
+	};
 
     return mpAPI;
   });
