@@ -25,7 +25,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="/#/me">
 						<i class="fa fa-cog"></i>
 						<span class="hidden-sm">my name</span>
 					</a>

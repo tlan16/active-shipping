@@ -29,6 +29,7 @@
 	<script src="/js/lib/angular-route.js"></script>
 	<script src="/js/lib/angular-ui-bootstrap.min.js"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/directives.js"></script>
     <script src="/js/services.js"></script>
 	<script src="/js/controllers.js"></script>
     @section('end-js')

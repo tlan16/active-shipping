@@ -1,11 +1,15 @@
 <form role="form">
   <div class="form-group">
     <label>Firstname:</label>
-    <input class="form-control" placeholder="Firstname"/>
+    <input class="form-control" placeholder="Firstname" ng-model="userModel.firstname"/>
   </div>
   <div class="form-group">
     <label>Lastname:</label>
-    <input class="form-control" placeholder="Lastname"/>
+    <input class="form-control" placeholder="Lastname" ng-model="userModel.lastname"/>
+  </div>
+  <div class="form-group">
+    <label>Email:</label>
+    <input class="form-control" placeholder="Email" ng-model="userModel.email"/>
   </div>
   <div class="form-group">
     <label>Description:</label>
