@@ -1,7 +1,12 @@
 <?php
 namespace App\Modules\Abstracts\Models;
 
+use Illuminate\Support\Facades\DB;
 class Blueprint extends \Illuminate\Database\Schema\Blueprint {
+	public function baseEntityIdColumn() {
+		$this->engine = 'InnoDB';
+		$this->increments('id');
+	}
 	
 	/**
 	 * Add creation and update timestamps to the table.
@@ -10,7 +15,6 @@ class Blueprint extends \Illuminate\Database\Schema\Blueprint {
 	 */
 	public function basicEntityColumns()
 	{
-		$this->increments('id');
 		$this->boolean('active');
 		$this->timestamp('created');
 		$this->integer('createdById');

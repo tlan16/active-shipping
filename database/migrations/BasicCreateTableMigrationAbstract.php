@@ -19,8 +19,9 @@ abstract class BasicCreateTableMigrationAbstract extends Migration {
 		} );
 		
 		$schema->create ( $this->_tableName, function (App\Modules\Abstracts\Models\Blueprint $table) {
-			$table->basicEntityColumns ();
+			$table->baseEntityIdColumn();
 			$this->_extraColumns($table);
+			$table->basicEntityColumns ();
 		} );
 	}
 	
