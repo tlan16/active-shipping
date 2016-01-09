@@ -18,6 +18,13 @@ angular.module('mpApp.services', []).
         params: parameters
       });
 	};
+	mpAPI.saveGroup = function(group) {
+		return $http({
+			method: 'PUT', 
+			url: '/api/group/' + group.id,
+			params: group
+		});
+	};
 	mpAPI.getGroupMembers = function(id, parameters) {
 		return $http({
 			method: 'GET', 

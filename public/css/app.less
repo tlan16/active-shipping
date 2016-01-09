@@ -4,6 +4,13 @@
 @group-description-lines-to-show: 2;
 @group-name-font-size: 20px;
 
+.one-line-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%
+}
+
 .page-wrapper {
 	margin-top: @top-menu-height;
 }
@@ -12,15 +19,15 @@
 	with: 100%;
 	overflow: hidden;
 	display: block; /* Fallback for non-webkit */
-  	display: -webkit-box;
-  	height: @group-description-font-size*@group-description-line-height*@group-description-lines-to-show; /* Fallback for non-webkit */
-  	margin: 0 auto;
-  	font-size: @group-description-font-size;
-  	line-height: @group-description-line-height;
-  	-webkit-line-clamp: @group-description-lines-to-show;
-  	-webkit-box-orient: vertical;
-  	overflow: hidden;
-  	text-overflow: ellipsis;
+  display: -webkit-box;
+  height: @group-description-font-size*@group-description-line-height*@group-description-lines-to-show; /* Fallback for non-webkit */
+  margin: 0 auto;
+  font-size: @group-description-font-size;
+  line-height: @group-description-line-height;
+  -webkit-line-clamp: @group-description-lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .editable-group-name {
@@ -31,4 +38,22 @@
 .user-avatar {
   width: 30px;
   height: 30px;
+}
+
+.edit-in-place .edit-display {
+  cursor: pointer;
+}
+.edit-in-place .edit-display:hover {
+  text-decoration: underline;
+}
+
+.edit-in-place .edit-input {
+  display: none;
+}
+
+.edit-in-place.active .edit-display {
+  display: none;
+}
+.edit-in-place.active .edit-input {
+  display: inline-block;
 }
