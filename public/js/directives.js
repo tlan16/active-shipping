@@ -12,9 +12,9 @@ var app = angular.module('mpApp.directives', [])
 	return {
 		restrict: 'AE',
 		scope: {
-			myDirModel: '='
+			ngModel: '='
 		},
-		template: '<button class="btn btn-success btn-xs" title="New Member"><i class="fa fa-plus"></i><span class="hidden-xs">New Member</span></button>'
+		template: '<button class="btn btn-success btn-xs" title="New Member" href="#" uib-popover-template="' + "'" + '/tpl/newUser.html' + "'" + '"  popover-placement="bottom" popover-animation="true"><i class="fa fa-plus"></i><span class="hidden-xs"> New Member</span></button>'
 	};
 })
 .directive('newTransToGroup', function ($compile){
@@ -23,7 +23,7 @@ var app = angular.module('mpApp.directives', [])
 		scope: {
 			myDirModel: '='
 		},
-		template: '<button class="btn btn-info btn-xs" title="New Transaction" href="javascript: void(0);" uib-popover-template="' + "'" + '/tpl/newTransToGroupForm.html' + "'" + '"  popover-placement="bottom" popover-animation="true"><i class="fa fa-plus"></i> <span class="">New Transaction</button>'
+		template: '<button class="btn btn-info btn-xs" title="New Transaction" href="#" uib-popover-template="' + "'" + '/tpl/newTransToGroupForm.html' + "'" + '"  popover-placement="bottom" popover-animation="true"><i class="fa fa-plus"></i> <span class="">New Transaction</button>'
 	};
 })
 .directive('editMePanel', function ($compile){
