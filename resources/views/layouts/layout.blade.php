@@ -8,7 +8,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-	<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet/less" type="text/css" href="/bower_components/font-awesome/less/font-awesome.less">
 	<link rel="stylesheet/less" type="text/css" href="/bower_components/bootstrap/less/bootstrap.less">
 	<link rel="stylesheet/less" type="text/css" href="/css/app.less" />
 	<script src="/bower_components/less/dist/less.min.js"></script>
