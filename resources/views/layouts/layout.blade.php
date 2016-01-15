@@ -8,10 +8,10 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-	<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet/less" type="text/css" href="/bower_components/bootstrap/less/bootstrap.less">
 	<link rel="stylesheet/less" type="text/css" href="/css/app.less" />
-	<script src="/js/lib/less.min.js"></script>
+	<script src="/bower_components/less/dist/less.min.js"></script>
 	<title>App Name - @yield('appName')</title>
 </head>
 <body ng-app="mpApp">
@@ -23,11 +23,11 @@
 			<ng-view></ng-view>
 		</div>
 	@show
-	<script src="/js/lib/jquery.min.js"></script>
-	<script src="js/lib/bootstrap.min.js"></script>
-	<script src="/js/lib/angular.min.js"></script>
-	<script src="/js/lib/angular-route.js"></script>
-	<script src="/js/lib/angular-ui-bootstrap.min.js"></script>
+	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/bower_components/angular-route/angular-route.min.js"></script>
+	<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/directives.js"></script>
     <script src="/js/services.js"></script>
