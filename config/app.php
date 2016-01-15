@@ -157,6 +157,10 @@ return [
         App\Providers\RouteServiceProvider::class,
     	App\Modules\ModulesServiceProvider::class,
 
+        /*
+         * Customise
+         */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
     ],
 
     /*
