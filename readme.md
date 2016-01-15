@@ -2,8 +2,7 @@
 
 ### Get Started
 ``` bash
-git clone https://github.com/tlan16/active-shipping
-.git
+git clone https://github.com/tlan16/active-shipping.git
 ```
 #### Composer
 ``` bash
