@@ -12,5 +12,5 @@ class MoneyPool extends BaseModel
      *
      * @var string
      */
-    protected $table = 'moneypool';
+    protected $table = 'moneypools';
 }

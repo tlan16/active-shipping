@@ -14,15 +14,15 @@ abstract class BaseModel extends Model
     /**
      * Get the creator
      */
-    public function createdBy()
+    public function created_by()
     {
-    	return $this->belongsTo(\App\Modules\System\Models\User::class, 'createdById');
+    	return $this->belongsTo(\App\Modules\System\Models\User::class, 'created_by');
     }
     /**
      * Get the updater
      */
-    public function updatedBy()
+    public function updated_by()
     {
-    	return $this->belongsTo(\App\Modules\System\Models\User::class, 'updatedById');
+    	return $this->belongsTo(\App\Modules\System\Models\User::class, 'updated_by');
     }
 }

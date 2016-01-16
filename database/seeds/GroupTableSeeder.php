@@ -1,5 +1,7 @@
 <?php
-use App\Modules\MoneyPool\Models\MoneyPool;
+use App\Modules\MoneyPool\Models\Group;
+use App\Modules\MoneyPool\Models\Group_User;
+use App\Modules\System\Models\User;
 require_once __DIR__ . '/BasicTableSeederAbstract.php';
 class GroupTableSeeder extends BasicTableSeederAbstract {
 	protected $_entityName = App\Modules\MoneyPool\Models\Group::class;
@@ -9,21 +11,13 @@ class GroupTableSeeder extends BasicTableSeederAbstract {
 	 * @return void
 	 */
 	public function run() {
-		factory ( $this->_entityName, 50 )->create()->each ( function ($item) {
-			$user = factory(App\Modules\System\Models\User::class)->make(['id' => 1]);
-			$item->createdBy()->associate($user);
-			$item->updatedBy()->associate($user);
-			$item->save();
-			
-			$pool = factory ( MoneyPool::class)->make();
-			$pool->entityName = get_class($item);
-			$pool->entityId = $item->id;
-			$pool->createdBy()->associate($user);
-			$pool->updatedBy()->associate($user);
-			$pool->save();
-			
-		} );
-		
-		factory ( App\Modules\MoneyPool\Models\Group_User::class, 50 )->create();
+		for($i = 0; $i < 10; $i++)
+			factory ( Group::class )->create();
+		foreach(User::all()->all() as $user)
+		{
+			factory ( Group_User::class )->create([
+				'user_id' => $user->id,
+			]);
+		}
 	}
 }

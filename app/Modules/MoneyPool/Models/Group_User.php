@@ -2,8 +2,8 @@
 
 namespace App\Modules\MoneyPool\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Modules\Abstracts\Models\BaseModel;
+use App\Modules\System\Models\User;
 
 
 class Group_User extends BaseModel
@@ -16,10 +16,10 @@ class Group_User extends BaseModel
     protected $table = 'group_user';
     public function group()
     {
-    	return $this->belongsTo(\App\Modules\MoneyPool\Models\Group::class, 'groupId');
+    	return $this->belongsTo(Group::class, 'group_id');
     }
     public function user()
     {
-    	return $this->belongsTo(\App\Modules\System\Models\User::class, 'userId');
+    	return $this->belongsTo(User::class, 'user_id');
     }
 }

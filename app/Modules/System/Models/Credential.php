@@ -2,7 +2,6 @@
 
 namespace App\Modules\System\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Modules\Abstracts\Models\BaseModel;
 
 class Credential extends BaseModel {
@@ -14,13 +13,13 @@ class Credential extends BaseModel {
 	 *
 	 * @var string
 	 */
-	protected $table = 'credential';
+	protected $table = 'credentials';
 	public static function getCredentialTypes() {
 		return [
     		self::TYPE_API_TOKEN, self::TYPE_NORMAL, self::TYPE_PASSWORD_RESET
     	];
 	}
 	public function user() {
-		$this->belongsTo(\App\Modules\System\Models\User::class, 'userId');
+		$this->belongsTo(User::class, 'user_id');
 	}
 }

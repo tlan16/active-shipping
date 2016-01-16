@@ -1,5 +1,10 @@
 <?php
-
+use Faker\Generator;
+use App\Modules\System\Models\User;
+use App\Modules\System\Models\Credential;
+use App\Modules\MoneyPool\Models\Group;
+use App\Modules\MoneyPool\Models\Group_User;
+use App\Modules\System\Models\Role;
 /*
  * |--------------------------------------------------------------------------
  * | Model Factories
@@ -10,44 +15,69 @@
  * | database. Just tell the factory how a default model should look.
  * |
  */
-$factory->define ( App\Modules\System\Models\User::class, function (Faker\Generator $faker) {
-	return [ 
-			'active' => 1,
-			'created' => $faker->dateTime,
-			'updated' => $faker->dateTime,
-			'createdById' => 1,
-			'updatedById' => 1,
-			'firstname' => $faker->firstName,
-			'lastname' => $faker->lastName,
-			'email' => $faker->email 
+$factory->define ( User::class, function (Generator $faker) {
+	return [
+		'active' => intval(random_int(0,10) !== 0),
+		'created' => $faker->dateTime,
+		'updated' => $faker->dateTime,
+		'created_by' => User::all()->count() > 0 ? $faker->randomElement(User::all()->all())->id : 1,
+		'updated_by' => User::all()->count() > 0 ? $faker->randomElement(User::all()->all())->id : 1,
+		'firstname' => $faker->firstName,
+		'lastname' => $faker->lastName,
+		'email' => $faker->email
 	];
 } );
-$factory->define ( App\Modules\System\Models\Role::class, function (Faker\Generator $faker) {
-	return [ 
-			'active' => 1,
-			'created' => $faker->dateTime,
-			'updated' => $faker->dateTime,
-			'name' => 'Role_' . $faker->randomDigitNotNull 
+$factory->define ( Credential::class, function (Faker\Generator $faker) {
+	return [
+		'user_id' => $faker->randomElement(User::all()->all())->id,
+		'type' => $faker->randomElement(Credential::getCredentialTypes()),
+		'username' => $faker->userName,
+		'password' => Hash::make('12345678'),
+		'active' => intval(random_int(0,10) !== 0),
+		'created' => $faker->dateTime,
+		'updated' => $faker->dateTime,
+		'created_by' => User::all()->count() > 0 ? $faker->randomElement(User::all()->all())->id : 1,
+		'updated_by' => User::all()->count() > 0 ? $faker->randomElement(User::all()->all())->id : 1,
 	];
 } );
-$factory->define ( App\Modules\System\Models\Credential::class, function (Faker\Generator $faker) {
-	$types = App\Modules\System\Models\Credential::getCredentialTypes ();
-	return [ 
-			'active' => 1,
+$factory->define ( Role::class, function (Faker\Generator $faker) {
+	do
+	{
+		$array = [
+			'name' => $faker->word,
+			'active' => intval(random_int(0,10) !== 0),
 			'created' => $faker->dateTime,
 			'updated' => $faker->dateTime,
-			'username' => $faker->userName,
-			'password' => $faker->sha1,
-			'type' => $types [rand ( 1, count ( $types ) - 1 )] 
-	];
+			'created_by' => User::all()->count() > 0 ? $faker->randomElement(User::all()->all())->id : 1,
+			'updated_by' => User::all()->count() > 0 ? $faker->randomElement(User::all()->all())->id : 1,
+		];
+	} while(Role::where(['name' => $array['name']])->get()->count() > 0);
+	return $array;
 } );
-$factory->define ( App\Modules\MoneyPool\Models\Group::class, function (Faker\Generator $faker) {
-	return [ 
-			'active' => 1,
+$factory->define ( Group::class, function (Faker\Generator $faker) {
+	do
+	{
+		$array = [
+			'name' => $faker->word,
+			'description' => $faker->sentences(random_int(1, 3), true),
+			'active' => intval(random_int(0, 10) !== 0),
 			'created' => $faker->dateTime,
 			'updated' => $faker->dateTime,
-			'name' => $faker->text(10),
-			'description' => $faker->text(255),
+			'created_by' => User::all()->count() > 0 ? $faker->randomElement(User::all()->all())->id : 1,
+			'updated_by' => User::all()->count() > 0 ? $faker->randomElement(User::all()->all())->id : 1,
+		];
+	} while(Group::where(['name' => $array['name']])->get()->count() > 0);
+	return $array;
+} );
+$factory->define ( Group_User::class, function (Faker\Generator $faker) {
+	return [
+		'user_id' => $faker->randomElement(User::all()->all())->id,
+		'group_id' => $faker->randomElement(Group::all()->all())->id,
+		'active' => intval(random_int(0,10) !== 0),
+		'created' => $faker->dateTime,
+		'updated' => $faker->dateTime,
+		'created_by' => User::all()->count() > 0 ? $faker->randomElement(User::all()->all())->id : 1,
+		'updated_by' => User::all()->count() > 0 ? $faker->randomElement(User::all()->all())->id : 1,
 	];
 } );
 $factory->define ( App\Modules\MoneyPool\Models\MoneyPool::class, function (Faker\Generator $faker) {
@@ -71,14 +101,3 @@ $factory->define ( App\Modules\MoneyPool\Models\Transaction::class, function (Fa
 			'amount' => $faker->numberBetween(-50, 50),
 	];
 } );
-
-$factory->define ( App\Modules\MoneyPool\Models\Group_User::class, function (Faker\Generator $faker) {
-	return [ 
-			'active' => 1,
-			'created' => $faker->dateTime,
-			'updated' => $faker->dateTime,
-			'groupId' => $faker->numberBetween(1, 50),
-			'userId' => $faker->numberBetween(1, 50),
-	];
-} );
-

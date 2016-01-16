@@ -17,14 +17,14 @@ class Blueprint extends \Illuminate\Database\Schema\Blueprint {
 	{
 		$this->boolean('active');
 		$this->timestamp('created');
-		$this->integer('createdById');
+		$this->unsignedMediumInteger('created_by');
 		$this->timestamp('updated');
-		$this->integer('updatedById');
+		$this->unsignedMediumInteger('updated_by');
 		
 		$this->index(['active'], 'active');
 		$this->index(['created'], 'created');
-		$this->index(['createdById'], 'createdById');
+		$this->index(['created_by'], 'created_by');
 		$this->index(['updated'], 'updated');
-		$this->index(['updatedById'], 'updatedById');
+		$this->index(['updated_by'], 'updated_by');
 	}
 }

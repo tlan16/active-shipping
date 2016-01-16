@@ -3,6 +3,7 @@ use Illuminate\Database\Migrations\Migration;
 abstract class BasicCreateTableMigrationAbstract extends Migration {
 	
 	protected $_tableName = '';
+	protected $_hasIdColumn = true;
 	protected function _extraColumns(App\Modules\Abstracts\Models\Blueprint $table) {
 		
 	}
@@ -19,7 +20,8 @@ abstract class BasicCreateTableMigrationAbstract extends Migration {
 		} );
 		
 		$schema->create ( $this->_tableName, function (App\Modules\Abstracts\Models\Blueprint $table) {
-			$table->baseEntityIdColumn();
+			if($this->_hasIdColumn)
+				$table->baseEntityIdColumn();
 			$this->_extraColumns($table);
 			$table->basicEntityColumns ();
 		} );
@@ -31,6 +33,6 @@ abstract class BasicCreateTableMigrationAbstract extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Schema::drop ( $this->_tableName );
+		Schema::dropIfExists ( $this->_tableName );
 	}
 }
